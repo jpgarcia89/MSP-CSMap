@@ -17,12 +17,13 @@ export class CentroDeSaludComponent implements OnInit {
 
   centroDeSalud: CentroDeSalud;
   centrosDeSalud: CentroDeSalud[];
+  // centrosDeSalud1: CentroDeSalud[];
 
   lat = -31.5351832;
   lng = -68.5223334;
 
-  lat1 = -31.5351832;
-  lng1 = -69.28492766147195;
+  // lat1 = -31.5351832;
+  // lng1 = -69.28492766147195;
 
   constructor(private centroDeSaludService: CentrosDeSaludService ) { }
 
@@ -31,15 +32,23 @@ export class CentroDeSaludComponent implements OnInit {
     // cs.nombre = 'CAPS Albardon';
     // cs.telefono = '264 4229613';
 
-    this.getCentrosDeSalud();
+     this.getCentrosDeSalud();
 
-    // this.centrosDeSalud.push(cs);
+    // this.centrosDeSalud1 = [
+    //   { ID: 429, Nombre: 'CAPS AGUA CERCADA', Latitud: -30.76363403278527, Longitud: -67.38432709549193,
+    //         Telefono: '*sin dato*', DepartamentoID: 429},
+    //   { ID: 429, Nombre: 'CAPS AGUA CERCADA', Latitud: -31.76363403278527, Longitud: -68.38432709549193,
+    //   Telefono: '*sin dato*', DepartamentoID: 429},
+    //   { ID: 429, Nombre: 'CAPS AGUA CERCADA', Latitud: -32.76363403278527, Longitud: -69.38432709549193,
+    //   Telefono: '*sin dato*', DepartamentoID: 429},
+    //   { ID: 429, Nombre: 'CAPS AGUA CERCADA', Latitud: -33.76363403278527, Longitud: -79.38432709549193,
+    //   Telefono: '*sin dato*', DepartamentoID: 429},
+    // ];
   }
 
 
   getCentrosDeSalud(): void {
-    this.centroDeSaludService.getCentrosDeSalud().subscribe(cs => this.centrosDeSalud = cs.slice(2, 7)
-    );
+    this.centroDeSaludService.getCentrosDeSalud().subscribe(cs => this.centrosDeSalud = cs);
   }
 
 }
