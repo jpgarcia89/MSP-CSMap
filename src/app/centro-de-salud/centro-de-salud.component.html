@@ -1,0 +1,21 @@
+<div>
+  <h2>{{csTittle}}</h2>
+
+  <!-- Listado De Centros de Salud -->
+  <ul>
+    <li *ngFor="let cs of centrosDeSalud">
+      <!-- <p>{{cs.ID}} -- {{cs.Nombre}} -- {{cs.Telefono}} -- {{cs.Latitud}} -- {{cs.Longitud}} -- {{cs.DepartamentoID}}</p> -->
+      {{ cs | json }}
+    </li>
+  </ul>
+
+  <!-- Mapa *ngFor="let cs of centrosDeSalud" [latitude]="cs.Latitud" [longitude]="cs.Longitud" -->
+  <agm-map [latitude]="lat" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      <agm-marker [latitude]="lat1" [longitude]="lng1 - 2"></agm-marker>
+      <agm-marker [latitude]="lat1" [longitude]="lng1 - 1"></agm-marker>
+      <agm-marker [latitude]="cs.Latitud | number:'2.1-5'" [longitude]="cs.Longitud | number:'2.1-5'" *ngFor="let cs of centrosDeSalud" ></agm-marker>
+    
+  </agm-map>
+
+</div>
